@@ -1,17 +1,16 @@
 package com.example.evidencia3
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.evidencia3.data.RetrofitServiceFactory
-import com.example.evidencia3.data.validate_user.LoginRequest
+import com.example.evidencia3.data.validate_user.JSONBody as JSONBodyLogin
+import com.example.evidencia3.data.get_projects.JSONBody as JSONBodyProyects
 import kotlinx.coroutines.launch
 
 class LogIn : AppCompatActivity() {
@@ -31,13 +30,16 @@ class LogIn : AppCompatActivity() {
 
         login.setOnClickListener {
             lifecycleScope.launch {
-                val loginRequest = LoginRequest(username.text.toString(), password.text.toString())
+                val loginRequest = JSONBodyLogin(username.text.toString(), password.text.toString())
                 val resultado = service.getIfUserIsValid(loginRequest)
 
                 if (resultado.statusCode == 200) {
-                    Toast.makeText(this@LogIn, "Login correcto", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@LogIn, MainScreen::class.java)
+                    intent.putExtra("isAdmin", resultado.body.isAdmin)
+                    intent.putExtra("username", username.text.toString())
+                    startActivity(intent)
                 } else {
-                    Toast.makeText(this@LogIn, "Login incorrecto", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LogIn, "Error: ${resultado.body.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }

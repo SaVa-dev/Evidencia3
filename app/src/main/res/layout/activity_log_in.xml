@@ -104,7 +104,7 @@
                 android:text="App creada por Cristian Matus"
                 android:textColor="#86ABAB"
                 android:textSize="12sp"
-                android:paddingBottom="2dp"
+                android:paddingBottom="3dp"
                 android:gravity="center" />
             
             <Button

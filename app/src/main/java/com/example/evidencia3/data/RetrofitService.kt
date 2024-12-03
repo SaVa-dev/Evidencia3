@@ -1,6 +1,8 @@
 package com.example.evidencia3.data
 
-import com.example.evidencia3.data.validate_user.LoginRequest
+import com.example.evidencia3.data.get_projects.GetProyectsResult
+import com.example.evidencia3.data.validate_user.JSONBody as JSONBodyUser
+import com.example.evidencia3.data.get_projects.JSONBody as JSONBodyProyects
 import com.example.evidencia3.data.validate_user.ValidateUserResult
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -9,7 +11,10 @@ import retrofit2.http.POST
 
 interface RetrofitService {
     @POST("RequestLogIn")
-    suspend fun getIfUserIsValid(@Body request: LoginRequest): ValidateUserResult
+    suspend fun getIfUserIsValid(@Body request: JSONBodyUser): ValidateUserResult
+
+    @POST("RequestProjects")
+    suspend fun getProyects(@Body request: JSONBodyProyects): GetProyectsResult
 }
 
 object RetrofitServiceFactory {
