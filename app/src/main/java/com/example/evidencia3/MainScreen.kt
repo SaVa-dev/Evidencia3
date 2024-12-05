@@ -49,18 +49,16 @@ class MainScreen : AppCompatActivity() {
 
             nombrecolaborador.text = "${resultado.body.colaborador.nombre} ${resultado.body.colaborador.apellidoPaterno} ${resultado.body.colaborador.apellidoMaterno}"
 
-            // Configura el listener para el ListView
             listView.setOnItemClickListener { _, _, position, _ ->
-                // Obtén el id del proyecto seleccionado
                 val proyectoSeleccionado = proyectos[position]
+                val nombreDelProyecto = proyectoSeleccionado.nombreDelProyecto
 
-                // Crea un Intent y pasa el id del proyecto
                 val intent = Intent(this@MainScreen, DetailedProjectScreen::class.java)
-                intent.putExtra("proyectoId", proyectoSeleccionado.idProyecto)
+                intent.putExtra("nombreProyecto", nombreDelProyecto)
 
-                // Inicia la nueva actividad
                 startActivity(intent)
             }
+
         }
     }
 }

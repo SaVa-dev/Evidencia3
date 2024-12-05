@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="190dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="8dp"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personas involucradas"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresa el usuario que deseas agregar:"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/usermail"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="user@mail.com"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+
+        <!-- Botón para guardar cambios -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:id="@+id/cancelSearchButton"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_button_red"
+                app:backgroundTint="@null"
+                android:text="Dismiss"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/searchUserButton"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_button"
+                app:backgroundTint="@null"
+                android:text="Search"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

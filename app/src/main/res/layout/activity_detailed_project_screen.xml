@@ -8,133 +8,252 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/gradient"
-    tools:context=".DetailedProjectScreen" >
+    tools:context=".DetailedProjectScreen"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detalles del proyecto"
+        android:gravity="start"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:shadowColor="#6E000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="  Detalles del proyecto: "
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:gravity="center"
-        />
+        android:drawableStart="@drawable/database"
+        android:drawableTint="@color/white"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
-        android:background="@drawable/custom_edit_text" >
+        android:background="@drawable/custom_edit_text">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
-            android:padding="24dp" >
+            android:padding="24dp">
 
-            <Space
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                android:layout_height="550dp"
+                android:fillViewport="true" > <!-- 550dp -->
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Iniciar Sesión"
-                android:textColor="#000000"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="6dp"
-                android:text="Bienvenido de vuelta a la app del CONACYT"
-                android:textSize="14sp" />
+                    <!-- EditText para nombre del proyecto -->
+                    <EditText
+                        android:id="@+id/projectName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre del proyecto"
+                        android:textColor="#000000"
+                        android:textSize="28sp"
+                        android:background="@drawable/flat_edit_text"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:layout_marginBottom="10dp"/>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Descripción:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nombre del usuario"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:paddingBottom="5dp"/>
+                    <!-- EditText para descripción -->
+                    <EditText
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Descripción"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:background="@drawable/flat_edit_text"
+                        android:padding="12dp"
+                        android:inputType="textMultiLine"
+                        android:layout_marginBottom="15dp"/>
 
-            <EditText
-                android:id="@+id/user"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/custom_edit_text"
-                android:drawableLeft="@drawable/user"
-                android:drawablePadding="8dp"
-                android:padding="8dp"
-                android:ems="10"
-                android:hint="fulanito123"
-                android:inputType="text" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Estatus del proyecto:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <Spinner
+                        android:id="@+id/projectStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/project_status_options"
+                        android:padding="12dp"
+                        android:layout_marginBottom="15dp"/>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fechas del proyecto:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/startDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Fecha de inicio"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:background="@drawable/flat_edit_text"
+                        android:padding="12dp"
+                        android:inputType="date"/>
+                    <EditText
+                        android:id="@+id/endDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Fecha de finalización"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:background="@drawable/flat_edit_text"
+                        android:padding="12dp"
+                        android:inputType="date"
+                        android:layout_marginBottom="15dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:paddingBottom="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Presupuesto:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/budget"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Presupuesto"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:background="@drawable/flat_edit_text"
+                        android:padding="12dp"
+                        android:inputType="numberDecimal"
+                        android:layout_marginBottom="15dp"/>
 
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/custom_edit_text"
-                android:drawableLeft="@drawable/lock"
-                android:drawablePadding="8dp"
-                android:padding="8dp"
-                android:ems="10"
-                android:hint="************"
-                android:inputType="text" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ubicación:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Ubicación"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:background="@drawable/flat_edit_text"
+                        android:padding="12dp"
+                        android:layout_marginBottom="15dp"/>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="50dp" />
+                    <!-- ListView para personas involucradas en el proyecto -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Personas involucradas:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="App creada por Cristian Matus"
-                android:textColor="#86ABAB"
-                android:textSize="12sp"
-                android:paddingBottom="3dp"
-                android:gravity="center" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="● Toque para consultar"
+                        android:textSize="14sp"
+                        android:paddingHorizontal="8dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="● Mantenga presionado para eliminar"
+                        android:textSize="14sp"
+                        android:paddingHorizontal="8dp"
+                        />
 
+                    <ListView
+                        android:id="@+id/personsListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:divider="@android:color/darker_gray"
+                        android:padding="12dp"
+                        android:nestedScrollingEnabled="true" />
+
+
+                    <!-- Botón para guardar cambios -->
+                    <Button
+                        android:id="@+id/addUserButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gradient_button_green"
+                        app:backgroundTint="@null"
+                        android:text="Add user"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/user"
+                        android:drawableTint="@color/white"
+                        android:layout_marginBottom="15dp"/>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <!-- Botón para guardar cambios -->
             <Button
-                android:id="@+id/login"
+                android:id="@+id/saveButton"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gradient_button"
                 app:backgroundTint="@null"
-                android:text="Inicial sesión"
-                android:textSize="20sp"/>
+                android:text="Guardar cambios"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/save"
+                android:drawableTint="@color/white"/>
 
-            <Space
+            <!-- Botón para regresar a la pantalla anterior -->
+            <Button
+                android:id="@+id/backButton"
                 android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="Descartar Cambios"
+                android:background="@drawable/gradient_button_red"
+                app:backgroundTint="@null"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/not_save"
+                android:drawableTint="@color/white"/>
 
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

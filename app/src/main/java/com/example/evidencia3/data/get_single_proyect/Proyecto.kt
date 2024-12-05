@@ -4,8 +4,9 @@ data class Proyecto(
     val descripcion: String,
     val fechaDeFinalizacion: String,
     val fechaDeInicio: String,
-    val id: Int,
-    val nombre: String,
+    val idProyecto: Int,
+    val nombreDelProyecto: String,
     val presupuesto: Int,
-    val status: String
+    val status: String,
+    val ubicacion: Ubicacion
 )
