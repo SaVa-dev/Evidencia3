@@ -1,6 +1,7 @@
 package com.example.evidencia3.data
 
 import com.example.evidencia3.data.get_projects.GetProyectsResult
+import com.example.evidencia3.data.get_single_proyect.JSONBody as JSONBodySingleProyect
 import com.example.evidencia3.data.validate_user.JSONBody as JSONBodyUser
 import com.example.evidencia3.data.get_projects.JSONBody as JSONBodyProyects
 import com.example.evidencia3.data.validate_user.ValidateUserResult
@@ -15,6 +16,9 @@ interface RetrofitService {
 
     @POST("RequestProjects")
     suspend fun getProyects(@Body request: JSONBodyProyects): GetProyectsResult
+
+    @POST("RequestSingleProyect")
+    suspend fun getSingleProyect(@Body request: JSONBodySingleProyect)
 }
 
 object RetrofitServiceFactory {
